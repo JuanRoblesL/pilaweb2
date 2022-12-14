@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <form action="/signin/" method="POST">
+        <div class="login-form">
+            <h1>Inicio de Sesión</h1>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username">Usuario:</label>
+                <input class="form-control" type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+            </div>
+            <div class="form-group">
+                <label for="id_password">Contraseña:</label>
+                <input class="form-control" type="password" name="password" autocomplete="current-password" required="" id="id_password">
+            </div>
+            <small id="noCuenta" class="form-text text-muted">¿Aún no tienes cuenta? <a href="/signup">Registrate</a></small>
+            <br>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <br>
+            <a href="{% url 'social:begin' 'facebook' %}">Login con facebook</a>
+
+        </div>
+    </form>
+
+    {{error}}
+
+  {% endblock %}

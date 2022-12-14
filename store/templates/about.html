@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Acerca De</h1>
+
+        <h3>Esta aplicación web fue creada por:</h3>
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-6">
+              <div class="card" style="padding: 10px;">
+                <div class="card-body">
+                  <h5 class="card-title">Kevin Fernando Tafoya Ruiz</h5>
+                  <h6>18130597</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card" style="padding: 10px;">
+                  <div class="card-body">
+                    <h5 class="card-title">Alexis Karim Rodriguez Padilla</h5>
+                    <h6>18130597</h6>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <p>{{ user.get_full_name }}</p>
+    
+
+{% endblock %}

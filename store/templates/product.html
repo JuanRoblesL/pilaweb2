@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>{{ product.name }}</h1>
+
+        <p>{{ product.categorie }}</p>
+        <p>{{ product.description }}</p>
+        <p>{{ product.release_year }}</p>
+
+        <form action="/products/{{ product.id }}" method="POST">
+
+            {% csrf_token %}
+    
+            <div class="form-group">
+                <label for="comment">Escribe un comentario</label>
+                <input class="form-control" type="text" name="comment"  required="" id="comment">
+            </div>
+            <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Publicar</button>
+        </form>
+
+        <h2>Reseñas</h2>
+        {% for comment in comments %}
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              <div class="card" style="padding: 10px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{ comment.author }}</h5>
+                  <h6>{{comment.date}}</h6>
+                  <p class="card-text">{{ comment.comment }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+        
+
+
+    
+
+    
+
+{% endblock %}
